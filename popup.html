@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>SBS Ad Skipper</title>
+
+<style>
+
+:root{
+    --cyan:#3ef6d7;
+    --purple:#7b6cff;
+}
+
+body{
+    width:340px;
+    padding:16px;
+
+    margin:0;
+
+    color:white;
+
+    font-family:"Segoe UI",sans-serif;
+
+    background:
+        radial-gradient(circle at top left,#0d6a8d 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#5128c8 0%,transparent 40%),
+        linear-gradient(135deg,#081522,#17152f);
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:14px;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.title{
+    font-size:20px;
+    font-weight:700;
+}
+
+.subtitle{
+    margin-top:6px;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    line-height:1.4;
+}
+
+.status{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.switch{
+    position:relative;
+    width:80px;
+    height:40px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+
+    border-radius:999px;
+
+    background:#374151;
+}
+
+.slider:before{
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:32px;
+
+    left:4px;
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:
+        linear-gradient(
+            135deg,
+            #25ffc4,
+            #00d4ff
+        );
+}
+
+input:checked + .slider:before{
+    transform:translateX(40px);
+}
+
+.counter{
+    text-align:center;
+}
+
+.count{
+    font-size:64px;
+    font-weight:800;
+
+    margin-top:10px;
+
+    color:#55fff0;
+}
+
+button{
+    width:100%;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(62,246,215,.25),
+            rgba(123,108,255,.25)
+        );
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.footer{
+    text-align:center;
+    margin-top:12px;
+    color:#a9b4c6;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.credit{
+    margin-top:4px;
+    font-size:11px;
+    color:#7b6cff;
+    font-weight:600;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+
+<div class="title">
+    SBS Ad Skipper v1.0
+</div>
+
+<div class="subtitle">
+    Automatically fast-forwards SBS On Demand ad breaks.
+</div>
+
+
+</div>
+
+<div class="card status">
+
+
+<div>
+    <strong>Status</strong><br>
+    <span style="color:#56ffb7;">● Active</span>
+</div>
+
+<label class="switch">
+    <input id="toggle" type="checkbox">
+    <span class="slider"></span>
+</label>
+
+
+</div>
+
+<div class="card counter">
+
+
+<div>
+    Ad Breaks Skipped
+</div>
+
+<div id="count" class="count">
+    0
+</div>
+
+<div>
+    Lifetime
+</div>
+
+
+</div>
+
+<button id="reset">
+    Reset Statistics
+</button>
+
+<div class="footer">
+    <div>SBS On Demand Auto Ads Fast Forwarder</div>
+    <div class="credit">Developed By Yashvir Gaming</div>
+</div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>
